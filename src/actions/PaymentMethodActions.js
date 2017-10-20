@@ -92,11 +92,8 @@ export function fetchPaymentHistory({ search, include, order }) {
 export function fetchBalance({ stripe_customer_id }) {
     const accessToken = localStorage.getItem('token');
 
-
-
         return dispatch => apiRequest.stripeGetBalance(accessToken, stripe_customer_id, 'balance')
             .then((data) => {
-                    console.log(data);
                     dispatch(getBalance(data.data));
                 }
             )

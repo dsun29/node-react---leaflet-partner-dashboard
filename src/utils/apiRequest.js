@@ -15,6 +15,7 @@ function headers() {
 
 export default class apiRequest {
   static get(path, id = null, params = null) {
+    console.log(`${API_URI}/${[compact([path, id]).join('/'), params].join('')}`);
     return axios.get(`${API_URI}/${[compact([path, id]).join('/'), params].join('')}`, headers());
   }
 

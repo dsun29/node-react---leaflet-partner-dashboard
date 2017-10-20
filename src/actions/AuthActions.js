@@ -47,12 +47,10 @@ export function validateToken() {
         return apiRequest.authToken(accessToken)
           .then(({ data: { token, user } }) => {
             console.log(user);
-
             dispatch(fetchBalance(user));
-
             if(user.location && user.location.objectId){
                 console.log(user.location);
-                fetchLocation(user.location.objectId);
+                dispatch(fetchLocation(user.location.objectId));
             }
 
             dispatch(authUser({ email, accessToken: token, currentUser: user }))

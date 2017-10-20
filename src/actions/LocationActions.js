@@ -76,7 +76,7 @@ export function fetchLocations({ search, include, order }) {
 }
 
 export function fetchLocation(itemId) {
-  console.log(itemId);
+  console.log("fetchLocation", itemId);
   return dispatch => apiRequest.get('Location', itemId, '?include="location_type"')
     .then(({ data }) => {
       console.log('return location', data);
